@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2014 ARM Limited. All rights reserved.
+ * Copyright (C) 2011-2015 ARM Limited. All rights reserved.
  * 
  * This program is free software and is provided to you under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation, and any use by you of this program is subject to the terms of such GNU licence.
@@ -95,6 +95,8 @@ struct mali_group *mali_group_create(struct mali_l2_cache_core *core,
 				     struct mali_dlbu_core *dlbu,
 				     struct mali_bcast_unit *bcast,
 				     u32 domain_index);
+
+void mali_group_dump_status(struct mali_group *group);
 
 void mali_group_delete(struct mali_group *group);
 

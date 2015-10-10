@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2014 ARM Limited. All rights reserved.
+ * Copyright (C) 2012-2015 ARM Limited. All rights reserved.
  * 
  * This program is free software and is provided to you under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation, and any use by you of this program is subject to the terms of such GNU licence.
@@ -99,9 +99,12 @@ void mali_session_memory_tracking(_mali_osk_print_ctx *print_ctx)
 	MALI_SESSION_FOREACH(session, tmp, link) {
 		_mali_osk_ctxprintf(print_ctx, "  %-25s  %-10u  %-10u  %-15u  %-15u  %-10u  %-10u\n",
 				    session->comm, session->pid,
-				    session->mali_mem_array[MALI_MEM_OS] + session->mali_mem_array[MALI_MEM_BLOCK], session->max_mali_mem_allocated,
-				    session->mali_mem_array[MALI_MEM_EXTERNAL], session->mali_mem_array[MALI_MEM_UMP],
-				    session->mali_mem_array[MALI_MEM_DMA_BUF]);
+				    (atomic_read(&session->mali_mem_allocated_pages)) * _MALI_OSK_MALI_PAGE_SIZE,
+				    session->max_mali_mem_allocated_size,
+				    (atomic_read(&session->mali_mem_array[MALI_MEM_EXTERNAL])) * _MALI_OSK_MALI_PAGE_SIZE,
+				    (atomic_read(&session->mali_mem_array[MALI_MEM_UMP])) * _MALI_OSK_MALI_PAGE_SIZE,
+				    (atomic_read(&session->mali_mem_array[MALI_MEM_DMA_BUF])) * _MALI_OSK_MALI_PAGE_SIZE
+				   );
 	}
 	mali_session_unlock();
 	mali_mem_usage  = _mali_ukk_report_memory_usage();

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 ARM Limited. All rights reserved.
+ * Copyright (C) 2010-2015 ARM Limited. All rights reserved.
  * 
  * This program is free software and is provided to you under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation, and any use by you of this program is subject to the terms of such GNU licence.
@@ -622,7 +622,7 @@ static _mali_osk_errcode_t mali_parse_config_memory(void)
 		}
 
 		if (MALI_SHARED_MEMORY_DEFAULT_SIZE == mali_shared_mem_size &&
-				0 != data.shared_mem_size) {
+		    0 != data.shared_mem_size) {
 			mali_shared_mem_size = data.shared_mem_size;
 		}
 	}
@@ -1142,8 +1142,11 @@ _mali_osk_errcode_t _mali_ukk_open(void **context)
 
 	session->pid = _mali_osk_get_pid();
 	session->comm = _mali_osk_get_comm();
-	session->max_mali_mem_allocated = 0;
-	_mali_osk_memset(session->mali_mem_array, 0, sizeof(size_t) * MALI_MEM_TYPE_MAX);
+	session->max_mali_mem_allocated_size = 0;
+	for (i = 0; i < MALI_MEM_TYPE_MAX; i ++) {
+		atomic_set(&session->mali_mem_array[i], 0);
+	}
+	atomic_set(&session->mali_mem_allocated_pages, 0);
 	*context = (void *)session;
 
 	/* Add session to the list of all sessions. */
