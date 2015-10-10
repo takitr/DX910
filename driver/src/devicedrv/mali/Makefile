@@ -158,6 +158,7 @@ endif
 ifneq ($(BUILD),release)
 # Debug
 export CONFIG_MALI400_DEBUG=y
+export EXTRA_DEFINES += -Wno-error=date-time
 else
 # Release
 ifeq ($(MALI_QUIET),1)

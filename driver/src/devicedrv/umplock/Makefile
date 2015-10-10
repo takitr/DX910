@@ -16,7 +16,7 @@ ARCH ?= $(shell uname -m)
 ifneq ($(KERNELRELEASE),)
 # Inside the kernel build system
 
-EXTRA_CFLAGS += -I$(KBUILD_EXTMOD)
+EXTRA_CFLAGS += -I$(KBUILD_EXTMOD) -Wno-error=date-time
 
 SRC =	umplock_driver.c
 
