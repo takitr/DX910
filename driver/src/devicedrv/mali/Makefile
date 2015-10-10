@@ -24,6 +24,7 @@ USING_DT ?= 0
 
 # set up defaults if not defined by the user
 ARCH ?= arm
+DO_CROSS_COMPILE ?= 1
 
 OSKOS=linux
 FILES_PREFIX=
@@ -88,8 +89,10 @@ KDIR-$(shell uname -m):=/lib/modules/$(shell uname -r)/build
 include $(KDIR)/.config
 
 ifeq ($(ARCH), arm)
-# when compiling for ARM we're cross compiling
+# when compiling for ARM we're cross compiling - how do you know that??
+ifeq ($(DO_CROSS_COMPILE), 1)
 export CROSS_COMPILE ?= $(call check_cc2, arm-linux-gnueabi-gcc, arm-linux-gnueabi-, arm-none-linux-gnueabi-)
+endif
 endif
 
 # report detected/selected settings

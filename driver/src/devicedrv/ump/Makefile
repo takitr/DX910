@@ -11,6 +11,7 @@
 # For each arch check: CROSS_COMPILE , KDIR , CFLAGS += -DARCH
 
 export ARCH ?= arm
+DO_CROSS_COMPILE ?= 1
 BUILD ?= debug
 
 check_cc2 = \
@@ -36,8 +37,10 @@ endif
 KDIR-$(shell uname -m):=/lib/modules/$(shell uname -r)/build
 
 ifeq ($(ARCH), arm)
-# when compiling for ARM we're cross compiling
+# when compiling for ARM we're cross compiling - how do you know that??
+ifeq ($(DO_CROSS_COMPILE), 1)
 export CROSS_COMPILE ?= $(call check_cc2, arm-linux-gnueabi-gcc, arm-linux-gnueabi-, arm-none-linux-gnueabi-)
+endif
 endif
 
 # look up KDIR based om CPU selection

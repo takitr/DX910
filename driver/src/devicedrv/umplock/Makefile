@@ -10,6 +10,7 @@
 
 # default to building for the host
 ARCH ?= $(shell uname -m)
+DO_CROSS_COMPILE ?= 1
 
 # linux build system integration
 
@@ -39,8 +40,10 @@ else
 KDIR-$(shell uname -m):=/lib/modules/$(shell uname -r)/build
 
 ifeq ($(ARCH), arm)
-	# when compiling for ARM we're cross compiling
+	# when compiling for ARM we're cross compiling - how do you know that??
+ifeq ($(DO_CROSS_COMPILE), 1)
 	export CROSS_COMPILE ?= arm-none-linux-gnueabi-
+endif
 	CONFIG ?= arm
 else
 	# Compiling for the host
