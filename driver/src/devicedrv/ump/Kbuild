@@ -23,7 +23,12 @@ $(shell ln -sf arch-$(CONFIG) $(src)/arch)
 $(shell touch $(src)/arch/config.h)
 endif
 
+ifneq ($(wildcard $(src)/mali-common/*),)
+UDD_FILE_PREFIX = mali-common/
+else
 UDD_FILE_PREFIX = ../mali/
+endif
+
 
 # Get subversion revision number, fall back to 0000 if no svn info is available
 SVN_INFO = (cd $(src); svn info 2>/dev/null)
@@ -56,7 +61,18 @@ endif
 ccflags-y += -DSVN_REV=$(SVN_REV)
 ccflags-y += -DSVN_REV_STRING=\"$(DRIVER_REV)\"
 
-ccflags-y += -I$(src) -I$(src)/common -I$(src)/linux -I$(src)/../mali/common -I$(src)/../mali/linux -I$(src)/../../ump/include/ump
+ccflags-y += -I$(src) -I$(src)/common -I$(src)/linux
+ifeq ($(wildcard $(src)/include/ump/*),)
+ccflags-y += -I$(src)/../../ump/include/ump
+else
+ccflags-y += -I$(src)/include/ump
+endif
+
+ifeq ($(MALI_DIR),)
+MALI_DIR = $(src)/../mali
+endif
+ccflags-y += -I$(MALI_DIR)/common -I$(MALI_DIR)/linux
+
 ccflags-y += -DMALI_STATE_TRACKING=0
 ccflags-y += -DMALI_ENABLE_CPU_CYCLES=0
 ccflags-$(CONFIG_UMP_DEBUG) += -DDEBUG
@@ -66,9 +82,9 @@ ccflags-$(CONFIG_UMP_DEBUG) += -DDEBUG
 # The GPL product will only include the license/gpl directory
 
 ifeq ($(wildcard $(src)/linux/license/gpl/*),)
-ccflags-y += -I$(src)/linux/license/proprietary -I$(src)/../mali/linux/license/proprietary
+ccflags-y += -I$(src)/linux/license/proprietary -I$(MALI_DIR)/linux/license/proprietary
 else
-ccflags-y += -I$(src)/linux/license/gpl -I$(src)/../mali/linux/license/gpl
+ccflags-y += -I$(src)/linux/license/gpl -I$(MALI_DIR)/linux/license/gpl
 endif
 
 ump-y = common/ump_kernel_common.o \

@@ -59,6 +59,10 @@ ifeq ($(KDIR),)
 $(error No KDIR found for platform $(CPU))
 endif
 
+ifneq ($(MALI_DIR),)
+export MALI_DIR
+endif
+
 all:
 	$(MAKE) -C $(KDIR) M=$(CURDIR) modules
 
@@ -67,4 +71,4 @@ kernelrelease:
 
 clean:
 	$(MAKE) -C $(KDIR) M=$(CURDIR) clean
-	$(MAKE) -C $(KDIR) M=$(CURDIR)/../mali clean
+	#$(MAKE) -C $(KDIR) M=$(CURDIR)/../mali clean
