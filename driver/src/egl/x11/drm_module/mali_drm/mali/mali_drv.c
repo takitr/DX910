@@ -10,7 +10,7 @@
 
 #include <linux/vermagic.h>
 #include <linux/version.h>
-#include "drmP.h"
+#include <drm/drmP.h>
 #include "mali_drm.h"
 #include "mali_drv.h"
 
