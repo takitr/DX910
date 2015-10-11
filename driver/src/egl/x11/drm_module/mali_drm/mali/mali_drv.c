@@ -74,7 +74,7 @@ static struct platform_driver platform_drm_driver =
 	.driver = {
 		.name = mali_drm_device_name,
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 18, 0)
-		.set_busid = drm_pci_set_busid,
+		.set_busid = drm_platform_set_busid,
 #endif
 		.owner = THIS_MODULE,
 	},
