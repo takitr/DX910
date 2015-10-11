@@ -1,0 +1,24 @@
+# Ignore generated files in x11/xf86-video-mali-0.0.1/
+
+x11/xf86-video-mali-0.0.1/Makefile.in
+x11/xf86-video-mali-0.0.1/autom4te.cache
+x11/xf86-video-mali-0.0.1/aclocal.m4
+x11/xf86-video-mali-0.0.1/compile
+x11/xf86-video-mali-0.0.1/configure
+x11/xf86-video-mali-0.0.1/config.guess
+x11/xf86-video-mali-0.0.1/config.h
+x11/xf86-video-mali-0.0.1/config.h.in
+x11/xf86-video-mali-0.0.1/config.h.in~
+x11/xf86-video-mali-0.0.1/config.log
+x11/xf86-video-mali-0.0.1/config.status
+x11/xf86-video-mali-0.0.1/config.sub
+x11/xf86-video-mali-0.0.1/depcomp
+x11/xf86-video-mali-0.0.1/ltmain.sh
+x11/xf86-video-mali-0.0.1/install-sh
+x11/xf86-video-mali-0.0.1/Makefile
+x11/xf86-video-mali-0.0.1/missing
+x11/xf86-video-mali-0.0.1/stamp-h1
+x11/xf86-video-mali-0.0.1/libtool
+x11/xf86-video-mali-0.0.1/src/.deps/
+x11/xf86-video-mali-0.0.1/src/Makefile
+x11/xf86-video-mali-0.0.1/src/Makefile.in
