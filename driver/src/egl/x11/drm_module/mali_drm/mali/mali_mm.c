@@ -447,12 +447,12 @@ void mali_reclaim_buffers_locked(struct drm_device *dev, struct drm_file *file_p
 
 const struct drm_ioctl_desc mali_ioctls[] =
 {
-	MALI_IOCTL_DEF_DRV(DRM_MALI_FB_ALLOC, mali_fb_alloc, DRM_AUTH),
-	MALI_IOCTL_DEF_DRV(DRM_MALI_FB_FREE, mali_drm_free, DRM_AUTH),
-	MALI_IOCTL_DEF_DRV(DRM_MALI_MEM_INIT, mali_ioctl_mem_init, DRM_AUTH | DRM_MASTER | DRM_ROOT_ONLY),
-	MALI_IOCTL_DEF_DRV(DRM_MALI_MEM_ALLOC, mali_ioctl_mem_alloc, DRM_AUTH),
-	MALI_IOCTL_DEF_DRV(DRM_MALI_MEM_FREE, mali_drm_free, DRM_AUTH),
-	MALI_IOCTL_DEF_DRV(DRM_MALI_FB_INIT, mali_fb_init, DRM_AUTH | DRM_MASTER | DRM_ROOT_ONLY),
+	DRM_IOCTL_DEF_DRV(DRM_MALI_FB_ALLOC, mali_fb_alloc, DRM_AUTH),
+	DRM_IOCTL_DEF_DRV(DRM_MALI_FB_FREE, mali_drm_free, DRM_AUTH),
+	DRM_IOCTL_DEF_DRV(DRM_MALI_MEM_INIT, mali_ioctl_mem_init, DRM_AUTH | DRM_MASTER | DRM_ROOT_ONLY),
+	DRM_IOCTL_DEF_DRV(DRM_MALI_MEM_ALLOC, mali_ioctl_mem_alloc, DRM_AUTH),
+	DRM_IOCTL_DEF_DRV(DRM_MALI_MEM_FREE, mali_drm_free, DRM_AUTH),
+	DRM_IOCTL_DEF_DRV(DRM_MALI_FB_INIT, mali_fb_init, DRM_AUTH | DRM_MASTER | DRM_ROOT_ONLY),
 };
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,16,0)

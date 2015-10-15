@@ -60,16 +60,16 @@ extern int mali_max_ioctl;
 #define DRM_MEM_DRIVER 2
 #endif
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+/*#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(4,1,0)
 
-#define MALI_IOCTL_DEF_DRV(ioctl, _func, _flags) \
+#define DRM_IOCTL_DEF_DRV(ioctl, _func, _flags) \
 	[DRM_IOCTL_NR(ioctl)] = \
 		{.cmd = ioctl, .func = _func, .flags = _flags, .name = #ioctl}
 
 #else
 
-#define MALI_IOCTL_DEF_DRV(ioctl, _func, _flags) \
+#define DRM_IOCTL_DEF_DRV(ioctl, _func, _flags) \
 	[DRM_IOCTL_NR(ioctl)] = \
 		{.cmd = ioctl, .func = _func, .flags = _flags, .cmd_drv = 0}
 
@@ -77,10 +77,11 @@ extern int mali_max_ioctl;
 
 #else
 
-#define MALI_IOCTL_DEF(ioctl, _func, _flags) \
+#define DRM_IOCTL_DEF(ioctl, _func, _flags) \
 	[DRM_IOCTL_NR(ioctl)] = \
 		{.cmd = ioctl, .func = _func, .flags = _flags}
 
 #endif
+*/
 
 #endif /* _MALI_DRV_H_ */
