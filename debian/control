@@ -1,0 +1,46 @@
+Source: dx910-driver
+Section: graphics
+Priority: optional
+Maintainer: Thomas-Karl Pietrowski <thopiekar@googlemail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.8.1
+
+Package: mali-dkms
+Architecture: all
+Depends: ${misc:Depends},
+ dkms, make,
+ libdrm-dev, linux-libc-dev
+Recommends:
+ linux-headers-generic
+Description: ARM Mali driver in DKMS format.
+
+Package: mali-drm-dkms
+Architecture: all
+Depends: ${misc:Depends},
+ dkms, make,
+ libdrm-dev, linux-libc-dev
+Description: ARM MALI DRM driver in DKMS format.
+
+Package: ump-dkms
+Architecture: all
+Depends: ${misc:Depends},
+ dkms, make,
+ libdrm-dev, linux-libc-dev
+Description: ARM UMP driver in DKMS format.
+
+Package: umplock-dkms
+Architecture: all
+Depends: ${misc:Depends},
+ dkms, make,
+ libdrm-dev, linux-libc-dev
+Description: ARM UMPLOCK driver in DKMS format.
+
+Package: libmali-hardkernel-odroid-u3
+Architecture: armhf
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Recommends:
+ xserver-xorg
+Description: ARM mali xserver driver.
+

@@ -1,0 +1,4 @@
+driver/src/devicedrv/mali/*	/usr/src/mali-0.0.0
+config/mali/dkms.conf		/usr/src/mali-0.0.0
+config/mali/mali.rules		/lib/udev/rules.d/
+config/mali/dkms.conf		/etc/modules-load.d/

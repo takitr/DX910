@@ -1,0 +1,2 @@
+driver/src/egl/x11/drm_module/mali_drm/*	/usr/src/mali-drm-0.0.0
+config/mali-drm/dkms.conf			/usr/src/mali-drm-0.0.0

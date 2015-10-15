@@ -1,0 +1,10 @@
+driver/src/devicedrv/ump/*				/usr/src/ump-0.0.0
+driver/src/devicedrv/mali/linux/mali_osk_atomics.c	/usr/src/ump-0.0.0/mali-common/linux
+driver/src/devicedrv/mali/linux/mali_osk_locks.c	/usr/src/ump-0.0.0/mali-common/linux
+driver/src/devicedrv/mali/linux/mali_osk_memory.c	/usr/src/ump-0.0.0/mali-common/linux
+driver/src/devicedrv/mali/linux/mali_osk_math.c		/usr/src/ump-0.0.0/mali-common/linux
+driver/src/devicedrv/mali/linux/mali_osk_misc.c		/usr/src/ump-0.0.0/mali-common/linux
+driver/src/ump/include					/usr/src/ump-0.0.0
+config/ump/dkms.conf					/usr/src/ump-0.0.0
+config/ump/ump.rules					/lib/udev/rules.d/
+config/ump/ump.conf					/etc/modules-load.d/

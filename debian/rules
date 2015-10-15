@@ -1,0 +1,58 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+%:
+	dh $@
+
+override_dh_clean:
+	dh_clean
+	#make -C binaries clean
+	
+	# removing all generated *.postinst/prerm
+	set -e ; for MODEL in \
+		hardkernel-odroid-u3 ; do \
+			rm -rfv debian/libmali-$$MODEL.postinst \
+			        debian/libmali-$$MODEL.prerm \
+		; done
+
+override_dh_auto_build:
+	#make -C binaries
+	
+	for file in debian/*.in; \
+	do \
+		sed -e"s,\$${DEB_HOST_MULTIARCH},$(DEB_HOST_MULTIARCH),g" \
+			$${file} > $${file%%.in}; \
+	done
+
+override_dh_install:
+	dh_install
+	set -e ; for MODEL in \
+		hardkernel-odroid-u3 ; do \
+			mkdir -p $(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ ; \
+			echo "/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL" \
+	                > $(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ld.so.conf ; \
+		done
+
+override_dh_makeshlibs:
+	set -e ; for MODEL in \
+		hardkernel-odroid-u3 ; do \
+			dh_makeshlibs -plibmali-$$MODEL -- -c4 \
+			-edebian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/\* \
+		; done
+	
+	dh_makeshlibs -s --remaining-packages -- -c4
+
+override_dh_shlibdeps:
+	set -e ; for MODEL in \
+		hardkernel-odroid-u3 ; do \
+			dh_shlibdeps -plibmali-$$MODEL \
+			-l/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ -- \
+			-S$(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ \
+		; done
+	
+	dh_shlibdeps -s --remaining-packages
