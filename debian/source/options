@@ -1,8 +1,0 @@
-tar-ignore .bzr
-tar-ignore .bzr.backup
-tar-ignore .bzr.tags
-tar-ignore .bzrignore
-tar-ignore .git
-tar-ignore .gitattributes
-tar-ignore .gitignore
-tar-ignore .gitmodules
