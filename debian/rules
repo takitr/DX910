@@ -11,7 +11,6 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 override_dh_clean:
 	dh_clean
-	#make -C binaries clean
 	
 	# removing all generated *.postinst/prerm
 	set -e ; for MODEL in \
@@ -21,8 +20,6 @@ override_dh_clean:
 		; done
 
 override_dh_auto_build:
-	#make -C binaries
-	
 	for file in debian/*.in; \
 	do \
 		sed -e"s,\$${DEB_HOST_MULTIARCH},$(DEB_HOST_MULTIARCH),g" \
@@ -30,13 +27,14 @@ override_dh_auto_build:
 	done
 
 override_dh_install:
-	dh_install
 	set -e ; for MODEL in \
 		hardkernel-odroid-u3 ; do \
 			mkdir -p $(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ ; \
 			echo "/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL" \
 	                > $(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ld.so.conf ; \
 		done
+	
+	dh_install
 
 override_dh_makeshlibs:
 	set -e ; for MODEL in \
