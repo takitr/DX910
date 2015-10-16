@@ -2,7 +2,9 @@ Source: dx910-driver
 Section: graphics
 Priority: optional
 Maintainer: Thomas-Karl Pietrowski <thopiekar@googlemail.com>
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 9),
+# libMali
+ libx11-6, libdrm2, libxfixes3, libxext6
 Standards-Version: 3.8.1
 
 Package: mali-dkms
