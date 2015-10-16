@@ -5,4 +5,4 @@ driver/src/devicedrv/umplock/*				/usr/src/umplock-0.0.0
 #driver/src/devicedrv/mali/linux/mali_osk_math.c		/usr/src/umplock-0.0.0/mali-common/linux
 #driver/src/devicedrv/mali/linux/mali_osk_misc.c		/usr/src/umplock-0.0.0/mali-common/linux
 #driver/src/ump/include					/usr/src/umplock-0.0.0
-config/umplock/dkms.conf					/usr/src/umplock-0.0.0
+config/dkms/umplock/dkms.conf					/usr/src/umplock-0.0.0

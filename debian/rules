@@ -29,9 +29,9 @@ override_dh_auto_build:
 override_dh_install:
 	set -e ; for MODEL in \
 		hardkernel-odroid-u3 ; do \
-			mkdir -p $(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ ; \
-			echo "/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL" \
-	                > $(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ld.so.conf ; \
+			mkdir -p $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ ; \
+			DESTDIR=$(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ make -C$(CURDIR)/blobs/$$MODEL install ; \
+			echo "/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL" > $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ld.so.conf ; \
 		done
 	
 	dh_install

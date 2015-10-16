@@ -1,2 +1,4 @@
 driver/src/egl/x11/drm_module/mali_drm/*	/usr/src/mali-drm-0.0.0
-config/mali-drm/dkms.conf			/usr/src/mali-drm-0.0.0
+config/dkms/mali-drm/dkms.conf			/usr/src/mali-drm-0.0.0
+config/modules-load.d/mali.conf			/etc/modules-load.d/
+config/modprobe/blacklist-mali-drm.conf		/etc/modprobe.d/
