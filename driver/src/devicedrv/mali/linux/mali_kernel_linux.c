@@ -223,7 +223,11 @@ static struct platform_driver mali_platform_driver = {
 		.pm = &mali_dev_pm_ops,
 #endif
 #ifdef CONFIG_MALI_DT
+#ifdef HARDKERNEL_MALI_TWEAKS
+		.of_match_table = amlogic_mesonstream_dt_match,
+#else
 		.of_match_table = of_match_ptr(base_dt_ids),
+#endif /* HARDKERNEL_MALI_TWEAKS */
 #endif
 	},
 };
@@ -360,6 +364,11 @@ void mali_init_cpu_time_counters_on_all_cpus(int print_only)
 }
 #endif
 
+#ifdef HARDKERNEL_C1_MALI_TWEAKS
+extern int mpgpu_class_init(void);
+extern int mali_platform_device_register(void);
+#endif /* HARDKERNEL_C1_MALI_TWEAKS */
+
 int mali_module_init(void)
 {
 	int err = 0;
@@ -376,8 +385,8 @@ int mali_module_init(void)
 #endif
 
 	/* Initialize module wide settings */
-#ifdef MALI_FAKE_PLATFORM_DEVICE
-#ifndef CONFIG_MALI_DT
+#if defined(MALI_FAKE_PLATFORM_DEVICE) || defined(HARDKERNEL_MALI_TWEAKS)
+#if !defined(CONFIG_MALI_DT) || defined(HARDKERNEL_MALI_TWEAKS)
 	MALI_DEBUG_PRINT(2, ("mali_module_init() registering device\n"));
 	err = mali_platform_device_register();
 	if (0 != err) {
@@ -389,12 +398,15 @@ int mali_module_init(void)
 	MALI_DEBUG_PRINT(2, ("mali_module_init() registering driver\n"));
 
 	err = platform_driver_register(&mali_platform_driver);
+#ifdef HARDKERNEL_C1_MALI_TWEAKS
+	//mpgpu_class_init(); // Don't know why it exists everywhere at Hardkernel
+#endif /* HARDKERNEL_C1_MALI_TWEAKS */
 
 	if (0 != err) {
 		MALI_DEBUG_PRINT(2, ("mali_module_init() Failed to register driver (%d)\n", err));
 #ifdef MALI_FAKE_PLATFORM_DEVICE
 #ifndef CONFIG_MALI_DT
-		mali_platform_device_unregister();
+	mali_platform_device_unregister();
 #endif
 #endif
 		mali_platform_device = NULL;
@@ -421,6 +433,9 @@ int mali_module_init(void)
 				      0, 0, 0);
 #endif
 
+#ifdef HARDKERNEL_C1_MALI_TWEAKS
+	mpgpu_class_init(); /* HARDKERNEL */
+#endif /* HARDKERNEL_C1_MALI_TWEAKS */
 	MALI_PRINT(("Mali device driver loaded\n"));
 
 	return 0; /* Success */

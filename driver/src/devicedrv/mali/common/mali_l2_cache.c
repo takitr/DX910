@@ -466,6 +466,11 @@ void mali_l2_cache_invalidate_all_pages(u32 *pages, u32 num_pages)
 
 static void mali_l2_cache_reset(struct mali_l2_cache_core *cache)
 {
+#ifdef HARDKERNEL_MALI_TWEAKS
+	if (cache && cache->pm_domain && !cache->pm_domain->power_is_on)
+		return;
+#endif /* HARDKERNEL_MALI_TWEAKS */
+	
 	MALI_DEBUG_ASSERT_POINTER(cache);
 	MALI_DEBUG_ASSERT_LOCK_HELD(cache->lock);
 

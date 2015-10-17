@@ -33,8 +33,7 @@
 #include "mali_timeline.h"
 #include "mali_soft_job.h"
 #include "mali_pm_domain.h"
-#if defined(MALI_ODROID_TWEAKS)
-#warning "Using MALI_ODROID_TWEAKS!"
+#if defined(HARDKERNEL_MALI_TWEAKS)
 #include "mali_platform.h"
 #endif
 #if defined(CONFIG_MALI400_PROFILING)
@@ -886,7 +885,7 @@ _mali_osk_errcode_t mali_initialize_subsystems(void)
 	/* Allowing the system to be turned off */
 	mali_pm_init_end();
 
-#if defined(MALI_ODROID_TWEAKS)
+#if defined(HARDKERNEL_MALI_TWEAKS)
 	mali_platform_init();
 #endif
 
@@ -899,7 +898,7 @@ void mali_terminate_subsystems(void)
 
 	MALI_DEBUG_PRINT(2, ("terminate_subsystems() called\n"));
 
-#if defined(MALI_ODROID_TWEAKS)
+#if defined(HARDKERNEL_MALI_TWEAKS)
 	mali_platform_deinit();
 #endif
 	mali_utilization_term();

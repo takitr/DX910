@@ -164,7 +164,7 @@ int mali_mmap(struct file *filp, struct vm_area_struct *vma)
 #endif
 
 	vma->vm_page_prot = pgprot_writecombine(vma->vm_page_prot);
-	vma->vm_ops = &mali_kernel_vm_ops;
+	vma->vm_ops = &mali_kernel_vm_ops; /* Operations used on any memory system */
 
 	/* find mali allocation structure by vaddress*/
 	mali_vma_node = mali_vma_offset_search(&session->allocation_mgr, mali_addr, 0);

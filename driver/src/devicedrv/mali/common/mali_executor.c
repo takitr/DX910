@@ -101,7 +101,11 @@ static u32 num_physical_pp_cores_total = 0;
 static u32 num_physical_pp_cores_enabled = 0;
 
 /* Enable or disable core scaling */
+#ifdef HARDKERNEL_MALI_TWEAKS
+static mali_bool core_scaling_enabled = MALI_FALSE;
+#else
 static mali_bool core_scaling_enabled = MALI_TRUE;
+#endif /* HARDKERNEL_MALI_TWEAKS */
 
 /* Variables to allow safe pausing of the scheduler */
 static _mali_osk_wait_queue_t *executor_working_wait_queue = NULL;
