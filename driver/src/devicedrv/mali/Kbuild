@@ -30,7 +30,7 @@ ifeq ($(wildcard $(src)/linux/license/gpl/*),)
     ifeq ($(CONFIG_MALI400_PROFILING),y)
         $(error Profiling is incompatible with non-GPL license)
     endif
-    ifeq ($(CONFIG_PM_RUNTIME),y)
+    ifeq ($(CONFIG_PM),y)
         $(error Runtime PM is incompatible with non-GPL license)
     endif
     ifeq ($(CONFIG_DMA_SHARED_BUFFER),y)
@@ -159,6 +159,20 @@ ccflags-$(CONFIG_MALI400_DEBUG) += -DDEBUG
 
 # Use our defines when compiling
 ccflags-y += -I$(src) -I$(src)/include -I$(src)/common -I$(src)/linux -I$(src)/platform
+
+# Platform integration
+ccflags-y += -I$(src)/platform/$(MALI_PLATFORM)
+
+## Platform specific integration
+ifeq ($(MALI_PLATFORM),odroid)
+	ccflags-y += -Iarch/arm/plat-samsung/include/
+	ccflags-y += -Iarch/arm/mach-exynos/
+	ccflags-y += -DMALI_ODROID_TWEAKS
+endif
+
+ifeq ($(MALI_PLATFORM),exynos)
+	ccflags-y += -Iinclude/config/arch/
+endif
 
 # Get subversion revision number, fall back to only ${MALI_RELEASE_NAME} if no svn info is available
 MALI_RELEASE_NAME=$(shell cat $(src)/.version 2> /dev/null)
