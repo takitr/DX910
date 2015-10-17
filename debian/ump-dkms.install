@@ -6,5 +6,5 @@ driver/src/devicedrv/mali/linux/mali_osk_math.c		/usr/src/ump-0.0.0/mali-common/
 driver/src/devicedrv/mali/linux/mali_osk_misc.c		/usr/src/ump-0.0.0/mali-common/linux
 driver/src/ump/include					/usr/src/ump-0.0.0
 config/dkms/ump/dkms.conf				/usr/src/ump-0.0.0
-config/udev-rules.d/ump.rules				/lib/udev/rules.d/
+config/udev-rules.d/ump.rules				/etc/udev/rules.d/
 config/modules-load.d/ump.conf				/etc/modules-load.d/
