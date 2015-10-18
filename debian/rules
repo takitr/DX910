@@ -14,7 +14,7 @@ override_dh_clean:
 	
 	# removing all generated *.postinst/prerm
 	set -e ; for MODEL in \
-		hardkernel-odroid-u3 ; do \
+		hardkernel-odroid-u3-r5p0 ; do \
 			rm -rfv debian/libmali-$$MODEL.postinst \
 			        debian/libmali-$$MODEL.prerm \
 		; done
@@ -28,7 +28,7 @@ override_dh_auto_build:
 
 override_dh_install:
 	set -e ; for MODEL in \
-		hardkernel-odroid-u3 ; do \
+		hardkernel-odroid-u3-r5p0 ; do \
 			mkdir -p $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ ; \
 			DESTDIR=$(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ make -C$(CURDIR)/blobs/$$MODEL install ; \
 			echo "/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL" > $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ld.so.conf ; \
@@ -38,7 +38,7 @@ override_dh_install:
 
 override_dh_makeshlibs:
 	set -e ; for MODEL in \
-		hardkernel-odroid-u3 ; do \
+		hardkernel-odroid-u3-r5p0 ; do \
 			dh_makeshlibs -plibmali-$$MODEL -- -c4 \
 			-edebian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/\* \
 		; done
@@ -47,7 +47,7 @@ override_dh_makeshlibs:
 
 override_dh_shlibdeps:
 	set -e ; for MODEL in \
-		hardkernel-odroid-u3 ; do \
+		hardkernel-odroid-u3-r5p0 ; do \
 			dh_shlibdeps -plibmali-$$MODEL \
 			-l/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ -- \
 			-S$(CURDIR)/debian/libmali-$$MODEL/usr/lib/$(DEB_HOST_MULTIARCH)/mali-egl-$$MODEL/ \

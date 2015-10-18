@@ -1,4 +1,4 @@
-driver/src/devicedrv/umplock/*				/usr/src/umplock-0.0.0
+drivers/r5p2/src/devicedrv/umplock/*				/usr/src/umplock-0.0.0
 #driver/src/devicedrv/mali/linux/mali_osk_atomics.c	/usr/src/umplock-0.0.0/mali-common/linux
 #driver/src/devicedrv/mali/linux/mali_osk_locks.c	/usr/src/umplock-0.0.0/mali-common/linux
 #driver/src/devicedrv/mali/linux/mali_osk_memory.c	/usr/src/umplock-0.0.0/mali-common/linux

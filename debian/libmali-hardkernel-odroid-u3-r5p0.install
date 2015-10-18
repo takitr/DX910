@@ -1,4 +1,4 @@
 # binaries
-/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3/ld.so.conf
-/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3/*.so
-/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3/*.so.*
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r5p0/ld.so.conf
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r5p0/*.so
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r5p0/*.so.*
