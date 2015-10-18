@@ -130,13 +130,17 @@ void mali_regulator_disable(void)
 
 void mali_regulator_enable(void)
 {
+	int ret;
 	bPoweroff = 0;
 	if( IS_ERR_OR_NULL(g3d_regulator) )
 	{
 		MALI_DEBUG_PRINT(1, ("error on mali_regulator_enable : g3d_regulator is null\n"));
 		return;
 	}
-	regulator_enable(g3d_regulator);
+	ret = regulator_enable(g3d_regulator);
+	if (ret) {
+		MALI_PRINT( ("MALI Error : regulator_enable in mali_regulator_enable failed with: %d \n", ret));
+	}
 	MALI_DEBUG_PRINT(1, ("regulator_enable -> use cnt: %d \n",mali_regulator_get_usecount()));
 }
 
@@ -370,6 +374,8 @@ mali_bool mali_clk_set_rate(unsigned int clk, unsigned int mhz)
 static mali_bool init_mali_clock(void)
 {
 	mali_bool ret = MALI_TRUE;
+	int retval;
+
 
 	gpu_power_state = 0;
 
@@ -403,7 +409,10 @@ static mali_bool init_mali_clock(void)
 		goto err_regulator;
 	}
 
-	regulator_enable(g3d_regulator);
+	retval = regulator_enable(g3d_regulator);
+	if (retval) {
+		MALI_PRINT( ("MALI Error : regulator_enable in init_mali_clock failed with: %d \n", ret));
+	}
 	MALI_DEBUG_PRINT(1, ("= regulator_enable -> use cnt: %d \n",mali_regulator_get_usecount()));
 	mali_regulator_set_voltage(mali_gpu_vol, mali_gpu_vol);
 #endif
