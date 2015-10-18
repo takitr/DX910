@@ -25,7 +25,6 @@ USING_DT ?= 0
 
 # set up defaults if not defined by the user
 ARCH ?= arm
-DO_CROSS_COMPILE ?= 1
 
 OSKOS=linux
 FILES_PREFIX=
