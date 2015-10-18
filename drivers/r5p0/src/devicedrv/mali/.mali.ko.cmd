@@ -1,1 +1,0 @@
-cmd_/source/mali/DX910/drivers/r5p0/src/devicedrv/mali/mali.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /source/mali/DX910/drivers/r5p0/src/devicedrv/mali/mali.ko /source/mali/DX910/drivers/r5p0/src/devicedrv/mali/mali.o /source/mali/DX910/drivers/r5p0/src/devicedrv/mali/mali.mod.o
