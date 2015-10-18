@@ -90,10 +90,8 @@ KDIR-$(shell uname -m):=/lib/modules/$(shell uname -r)/build
 include $(KDIR)/.config
 
 ifeq ($(ARCH), arm)
-# when compiling for ARM we're cross compiling - how do you know that??
-ifeq ($(DO_CROSS_COMPILE), 1)
+# when compiling for ARM we're cross compiling
 export CROSS_COMPILE ?= $(call check_cc2, arm-linux-gnueabi-gcc, arm-linux-gnueabi-, arm-none-linux-gnueabi-)
-endif
 endif
 
 # report detected/selected settings
@@ -109,7 +107,6 @@ export CONFIG_MALI450=y
 
 export EXTRA_DEFINES += -DCONFIG_MALI400=1
 export EXTRA_DEFINES += -DCONFIG_MALI450=1
-export EXTRA_DEFINES += -DMALI_FAKE_PLATFORM_DEVICE=1
 
 ifneq ($(MALI_PLATFORM),)
 export EXTRA_DEFINES += -DMALI_FAKE_PLATFORM_DEVICE=1
