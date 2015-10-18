@@ -16,28 +16,28 @@ Recommends:
  linux-headers-generic
 Description: ARM Mali driver in DKMS format.
 
-Package: mali-drm-dkms
-Architecture: all
-Depends: ${misc:Depends},
- dkms, make,
- libdrm-dev, linux-libc-dev
-Description: ARM MALI DRM driver in DKMS format.
+#Package: mali-drm-dkms
+#Architecture: all
+#Depends: ${misc:Depends},
+# dkms, make,
+# libdrm-dev, linux-libc-dev
+#Description: ARM MALI DRM driver in DKMS format.
 
-Package: ump-dkms
-Architecture: all
-Depends: ${misc:Depends},
- dkms, make,
- libdrm-dev, linux-libc-dev
-Description: ARM UMP driver in DKMS format.
+#Package: ump-dkms
+#Architecture: all
+#Depends: ${misc:Depends},
+# dkms, make,
+# libdrm-dev, linux-libc-dev
+#Description: ARM UMP driver in DKMS format.
 
-Package: umplock-dkms
-Architecture: all
-Depends: ${misc:Depends},
- dkms, make,
- libdrm-dev, linux-libc-dev
-Description: ARM UMPLOCK driver in DKMS format.
+#Package: umplock-dkms
+#Architecture: all
+#Depends: ${misc:Depends},
+# dkms, make,
+# libdrm-dev, linux-libc-dev
+#Description: ARM UMPLOCK driver in DKMS format.
 
-Package: libmali-hardkernel-odroid-u3
+Package: libmali-hardkernel-odroid-u3-r5p0
 Architecture: armhf
 Depends:
  ${shlibs:Depends},
