@@ -19,7 +19,7 @@
 #define MALI_TIMELINE_SYSTEM_LOCKED(system) (mali_spinlock_reentrant_is_held((system)->spinlock, _mali_osk_get_tid()))
 
 static mali_scheduler_mask mali_timeline_system_release_waiter(struct mali_timeline_system *system,
-		struct mali_timeline_waiter *waiter);
+        struct mali_timeline_waiter *waiter);
 
 #if defined(CONFIG_SYNC)
 #include <linux/version.h>
@@ -574,8 +574,8 @@ mali_scheduler_mask mali_timeline_tracker_release(struct mali_timeline_tracker *
 }
 
 void mali_timeline_system_release_waiter_list(struct mali_timeline_system *system,
-		struct mali_timeline_waiter *tail,
-		struct mali_timeline_waiter *head)
+        struct mali_timeline_waiter *tail,
+        struct mali_timeline_waiter *head)
 {
 	MALI_DEBUG_ASSERT_POINTER(system);
 	MALI_DEBUG_ASSERT_POINTER(head);
@@ -947,9 +947,9 @@ static struct mali_timeline_waiter *mali_timeline_system_get_zeroed_waiter(struc
 }
 
 static void mali_timeline_system_allocate_waiters(struct mali_timeline_system *system,
-		struct mali_timeline_waiter **tail,
-		struct mali_timeline_waiter **head,
-		int max_num_waiters)
+        struct mali_timeline_waiter **tail,
+        struct mali_timeline_waiter **head,
+        int max_num_waiters)
 {
 	u32 i, tid = _mali_osk_get_tid();
 	mali_bool do_alloc;
@@ -1001,9 +1001,9 @@ static void mali_timeline_system_allocate_waiters(struct mali_timeline_system *s
  * @param waiter_head List of pre-allocated waiters.
  */
 static void mali_timeline_system_create_waiters_and_unlock(struct mali_timeline_system *system,
-		struct mali_timeline_tracker *tracker,
-		struct mali_timeline_waiter *waiter_tail,
-		struct mali_timeline_waiter *waiter_head)
+        struct mali_timeline_tracker *tracker,
+        struct mali_timeline_waiter *waiter_tail,
+        struct mali_timeline_waiter *waiter_head)
 {
 	int i;
 	u32 tid = _mali_osk_get_tid();
@@ -1166,8 +1166,8 @@ exit:
 }
 
 mali_timeline_point mali_timeline_system_add_tracker(struct mali_timeline_system *system,
-		struct mali_timeline_tracker *tracker,
-		enum mali_timeline_id timeline_id)
+        struct mali_timeline_tracker *tracker,
+        enum mali_timeline_id timeline_id)
 {
 	int num_waiters = 0;
 	struct mali_timeline_waiter *waiter_tail, *waiter_head;
@@ -1225,7 +1225,7 @@ mali_timeline_point mali_timeline_system_add_tracker(struct mali_timeline_system
 }
 
 static mali_scheduler_mask mali_timeline_system_release_waiter(struct mali_timeline_system *system,
-		struct mali_timeline_waiter *waiter)
+        struct mali_timeline_waiter *waiter)
 {
 	struct mali_timeline_tracker *tracker;
 	mali_scheduler_mask schedule_mask = MALI_SCHEDULER_MASK_EMPTY;
@@ -1256,7 +1256,7 @@ static mali_scheduler_mask mali_timeline_system_release_waiter(struct mali_timel
 }
 
 mali_timeline_point mali_timeline_system_get_latest_point(struct mali_timeline_system *system,
-		enum mali_timeline_id timeline_id)
+        enum mali_timeline_id timeline_id)
 {
 	mali_timeline_point point;
 	struct mali_timeline *timeline;

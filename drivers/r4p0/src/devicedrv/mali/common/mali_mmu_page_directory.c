@@ -51,8 +51,8 @@ void mali_free_empty_page(u32 address, mali_io_address virt_addr)
 }
 
 _mali_osk_errcode_t mali_create_fault_flush_pages(u32 *page_directory, mali_io_address *page_directory_mapping,
-		u32 *page_table, mali_io_address *page_table_mapping,
-		u32 *data_page, mali_io_address *data_page_mapping)
+						  u32 *page_table, mali_io_address *page_table_mapping,
+						  u32 *data_page, mali_io_address *data_page_mapping)
 {
 	_mali_osk_errcode_t err;
 
@@ -368,7 +368,7 @@ static _mali_osk_errcode_t dump_mmu_page_table(struct mali_page_directory *paged
 		int i;
 
 		MALI_CHECK_NO_ERROR(
-			mali_mmu_dump_page(pagedir->page_directory_mapped, pagedir->page_directory, info)
+		    mali_mmu_dump_page(pagedir->page_directory_mapped, pagedir->page_directory, info)
 		);
 
 		for (i = 0; i < 1024; i++) {

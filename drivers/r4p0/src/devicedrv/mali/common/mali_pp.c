@@ -378,16 +378,16 @@ void mali_pp_job_start(struct mali_pp_core *core, struct mali_pp_job *job, u32 s
 	nr_of_regs = (MALI200_REG_ADDR_STACK - MALI200_REG_ADDR_RSW) / sizeof(u32);
 
 	mali_hw_core_register_write_array_relaxed_conditional(&core->hw_core,
-			relative_address, &frame_registers[start_index],
-			nr_of_regs, &mali_frame_registers_reset_values[start_index]);
+	        relative_address, &frame_registers[start_index],
+	        nr_of_regs, &mali_frame_registers_reset_values[start_index]);
 
 	/* MALI200_REG_ADDR_STACK_SIZE */
 	relative_address = MALI200_REG_ADDR_STACK_SIZE;
 	start_index = MALI200_REG_ADDR_STACK_SIZE / sizeof(u32);
 
 	mali_hw_core_register_write_relaxed_conditional(&core->hw_core,
-			relative_address, frame_registers[start_index],
-			mali_frame_registers_reset_values[start_index]);
+	        relative_address, frame_registers[start_index],
+	        mali_frame_registers_reset_values[start_index]);
 
 	/* Skip 2 reserved registers */
 
@@ -397,8 +397,8 @@ void mali_pp_job_start(struct mali_pp_core *core, struct mali_pp_job *job, u32 s
 	nr_of_regs = MALI_PP_MALI400_NUM_FRAME_REGISTERS - MALI200_REG_ADDR_ORIGIN_OFFSET_X / sizeof(u32);
 
 	mali_hw_core_register_write_array_relaxed_conditional(&core->hw_core,
-			relative_address, &frame_registers[start_index],
-			nr_of_regs, &mali_frame_registers_reset_values[start_index]);
+	        relative_address, &frame_registers[start_index],
+	        nr_of_regs, &mali_frame_registers_reset_values[start_index]);
 
 	/* Write WBx registers */
 	if (wb0_registers[0]) { /* M200_WB0_REG_SOURCE_SELECT register */

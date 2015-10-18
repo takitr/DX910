@@ -368,8 +368,8 @@ void mali_timeline_system_stop_timer(struct mali_timeline_system *system);
  * @return Point on timeline identifying this tracker, or MALI_TIMELINE_NO_POINT if not on timeline.
  */
 mali_timeline_point mali_timeline_system_add_tracker(struct mali_timeline_system *system,
-		struct mali_timeline_tracker *tracker,
-		enum mali_timeline_id timeline_id);
+        struct mali_timeline_tracker *tracker,
+        enum mali_timeline_id timeline_id);
 
 /**
  * Get latest point on timeline.
@@ -379,7 +379,7 @@ mali_timeline_point mali_timeline_system_add_tracker(struct mali_timeline_system
  * @return Latest point on timeline, or MALI_TIMELINE_NO_POINT if the timeline is empty.
  */
 mali_timeline_point mali_timeline_system_get_latest_point(struct mali_timeline_system *system,
-		enum mali_timeline_id timeline_id);
+        enum mali_timeline_id timeline_id);
 
 /**
  * Initialize tracker.

@@ -60,19 +60,19 @@ typedef enum mali_mmu_entry_flags {
 
 
 #define MALI_MMU_FLAGS_FORCE_GP_READ_ALLOCATE ( \
-		MALI_MMU_FLAGS_PRESENT | \
-		MALI_MMU_FLAGS_READ_PERMISSION |  \
-		MALI_MMU_FLAGS_WRITE_PERMISSION | \
-		MALI_MMU_FLAGS_OVERRIDE_CACHE | \
-		MALI_MMU_FLAGS_WRITE_CACHEABLE | \
-		MALI_MMU_FLAGS_WRITE_BUFFERABLE | \
-		MALI_MMU_FLAGS_READ_CACHEABLE | \
-		MALI_MMU_FLAGS_READ_ALLOCATE )
+MALI_MMU_FLAGS_PRESENT | \
+	MALI_MMU_FLAGS_READ_PERMISSION |  \
+	MALI_MMU_FLAGS_WRITE_PERMISSION | \
+	MALI_MMU_FLAGS_OVERRIDE_CACHE | \
+	MALI_MMU_FLAGS_WRITE_CACHEABLE | \
+	MALI_MMU_FLAGS_WRITE_BUFFERABLE | \
+	MALI_MMU_FLAGS_READ_CACHEABLE | \
+	MALI_MMU_FLAGS_READ_ALLOCATE )
 
 #define MALI_MMU_FLAGS_DEFAULT ( \
-				 MALI_MMU_FLAGS_PRESENT | \
-				 MALI_MMU_FLAGS_READ_PERMISSION |  \
-				 MALI_MMU_FLAGS_WRITE_PERMISSION )
+	MALI_MMU_FLAGS_PRESENT | \
+	MALI_MMU_FLAGS_READ_PERMISSION |  \
+	MALI_MMU_FLAGS_WRITE_PERMISSION )
 
 
 struct mali_page_directory {
@@ -95,8 +95,8 @@ u32 mali_page_directory_get_phys_address(struct mali_page_directory *pagedir, u3
 u32 mali_allocate_empty_page(mali_io_address *virtual);
 void mali_free_empty_page(u32 address, mali_io_address virtual);
 _mali_osk_errcode_t mali_create_fault_flush_pages(u32 *page_directory, mali_io_address *page_directory_mapping,
-		u32 *page_table, mali_io_address *page_table_mapping,
-		u32 *data_page, mali_io_address *data_page_mapping);
+        					  u32 *page_table, mali_io_address *page_table_mapping,
+        					  u32 *data_page, mali_io_address *data_page_mapping);
 void mali_destroy_fault_flush_pages(u32 *page_directory, mali_io_address *page_directory_mapping,
 				    u32 *page_table, mali_io_address *page_table_mapping,
 				    u32 *data_page, mali_io_address *data_page_mapping);

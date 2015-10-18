@@ -132,7 +132,7 @@ extern int mali_debug_level;
 
 #define MALI_DEBUG_CODE(code) code
 #define MALI_DEBUG_PRINT(level, args)  do { \
-		if((level) <=  mali_debug_level)\
+	if((level) <=  mali_debug_level)\
 		{MALI_PRINTF(("Mali<" #level ">: ")); MALI_PRINTF(args); } \
 	} while (0)
 
@@ -140,7 +140,7 @@ extern int mali_debug_level;
 
 #define MALI_DEBUG_PRINT_IF(level,condition,args)  \
 	if((condition)&&((level) <=  mali_debug_level))\
-	{MALI_PRINTF(("Mali<" #level ">: ")); MALI_PRINTF(args); }
+		{MALI_PRINTF(("Mali<" #level ">: ")); MALI_PRINTF(args); }
 
 #define MALI_DEBUG_PRINT_ELSE(level, args)\
 	else if((level) <=  mali_debug_level)\

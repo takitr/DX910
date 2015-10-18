@@ -88,7 +88,7 @@ MALI_STATIC_INLINE u32 mali_dma_command_write(struct mali_hw_core *core, u32 reg
  * @param count Number of 4 byte words to write
  */
 MALI_STATIC_INLINE void mali_dma_write_array(mali_dma_cmd_buf *buf, struct mali_hw_core *core,
-		u32 reg, u32 *data, u32 count)
+        u32 reg, u32 *data, u32 count)
 {
 	MALI_DEBUG_ASSERT((buf->size + 1 + count) < MALI_DMA_CMD_BUF_SIZE / 4);
 
@@ -110,7 +110,7 @@ MALI_STATIC_INLINE void mali_dma_write_array(mali_dma_cmd_buf *buf, struct mali_
  * @param ref Pointer to referance data that can be skipped if equal
  */
 MALI_STATIC_INLINE void mali_dma_write_array_conditional(mali_dma_cmd_buf *buf, struct mali_hw_core *core,
-		u32 reg, u32 *data, u32 count, const u32 *ref)
+        u32 reg, u32 *data, u32 count, const u32 *ref)
 {
 	/* Do conditional array writes are not yet implemented, fallback to a
 	 * normal array write. */
@@ -129,7 +129,7 @@ MALI_STATIC_INLINE void mali_dma_write_array_conditional(mali_dma_cmd_buf *buf, 
  * @param ref Pointer to referance data that can be skipped if equal
  */
 MALI_STATIC_INLINE void mali_dma_write_conditional(mali_dma_cmd_buf *buf, struct mali_hw_core *core,
-		u32 reg, u32 data, const u32 ref)
+        u32 reg, u32 data, const u32 ref)
 {
 	/* Skip write if reference value is equal to data. */
 	if (data == ref) return;

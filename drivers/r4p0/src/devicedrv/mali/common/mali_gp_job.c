@@ -14,7 +14,7 @@
 #include "mali_uk_types.h"
 
 static u32 gp_counter_src0 = MALI_HW_CORE_NO_COUNTER;      /**< Performance counter 0, MALI_HW_CORE_NO_COUNTER for disabled */
-static u32 gp_counter_src1 = MALI_HW_CORE_NO_COUNTER;           /**< Performance counter 1, MALI_HW_CORE_NO_COUNTER for disabled */
+static u32 gp_counter_src1 = MALI_HW_CORE_NO_COUNTER;      /**< Performance counter 1, MALI_HW_CORE_NO_COUNTER for disabled */
 
 struct mali_gp_job *mali_gp_job_create(struct mali_session_data *session, _mali_uk_gp_start_job_s *uargs, u32 id, struct mali_timeline_tracker *pp_tracker)
 {

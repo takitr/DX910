@@ -49,7 +49,7 @@ static void mali_user_settings_notify(_mali_uk_user_setting_t setting, u32 value
 
 		for (i = 0; i < num_sessions_alloc; i++) {
 			notobjs[i] = _mali_osk_notification_create(_MALI_NOTIFICATION_SETTINGS_CHANGED,
-					sizeof(_mali_uk_settings_changed_s));
+			             sizeof(_mali_uk_settings_changed_s));
 			if (NULL != notobjs[i]) {
 				_mali_uk_settings_changed_s *data;
 				data = notobjs[i]->result_buffer;
