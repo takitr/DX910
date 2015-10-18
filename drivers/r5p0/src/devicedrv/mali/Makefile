@@ -113,13 +113,6 @@ endif
 export MALI_PLATFORM_FILES = $(wildcard platform/$(MALI_PLATFORM)/*.c)
 endif
 
-ifeq ($(MALI_PLATFORM),odroid)
-ifeq ($(USING_DT),1)
-$(warning USING_DT not supported by MALI_PLATFORM)
-USING_DT = 0
-endif
-endif
-
 ifeq ($(USING_PROFILING),1)
 ifeq ($(CONFIG_TRACEPOINTS),)
 $(warning CONFIG_TRACEPOINTS required for profiling)
@@ -167,6 +160,7 @@ endif
 ifneq ($(BUILD),release)
 # Debug
 export CONFIG_MALI400_DEBUG=y
+export EXTRA_DEFINES += -Wno-error=date-time
 else
 # Release
 ifeq ($(MALI_QUIET),1)

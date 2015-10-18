@@ -49,7 +49,7 @@ static struct resource mali_gpu_resources_m450_mp6[] = {
 	MALI_GPU_RESOURCES_MALI450_MP6_PMU(0x6F040000, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200)
 };
 
-#else
+#else /* CONFIG_ARM64 */
 static struct resource mali_gpu_resources_m450_mp8[] = {
 	MALI_GPU_RESOURCES_MALI450_MP8_PMU(0xFC040000, -1, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 68)
 };
@@ -77,8 +77,8 @@ static struct resource mali_gpu_resources_m400_mp2[] = {
 	MALI_GPU_RESOURCES_MALI400_MP2_PMU(0xC0000000, -1, -1, -1, -1, -1, -1)
 };
 
-#endif
-#endif
+#endif /* CONFIG_ARCH_VEXPRESS || CONFIG_ARCH_REALVIEW */
+#endif /* CONFIG_MALI_DT */
 
 static struct mali_gpu_device_data mali_gpu_data = {
 #ifndef CONFIG_MALI_DT

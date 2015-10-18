@@ -28,7 +28,6 @@
 #include <linux/regulator/consumer.h>
 #include <linux/regulator/driver.h>
 
-
 #include <asm/io.h>
 #include <regs-pmu.h>
 
