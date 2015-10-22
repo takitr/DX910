@@ -12,6 +12,11 @@
  * @file mali_platform.c
  * Platform specific Mali driver functions for a default platform
  */
+
+#ifdef CONFIG_MALI_DT
+#error "CONFIG_MALI_DT is not supported!"
+#endif
+
 #include <linux/version.h>
 #include "mali_kernel_common.h"
 #include "mali_osk.h"
