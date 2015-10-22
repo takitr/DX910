@@ -158,7 +158,7 @@ static int mali_driver_runtime_resume(struct device *dev);
 static int mali_driver_runtime_idle(struct device *dev);
 #endif
 
-#if defined(MALI_FAKE_PLATFORM_DEVICE) || defined(HARDKERNEL_MALI_TWEAKS)
+#if defined(MALI_FAKE_PLATFORM_DEVICE)
 #if defined(CONFIG_MALI_DT)
 extern int mali_platform_device_init(struct platform_device *device);
 extern int mali_platform_device_deinit(struct platform_device *device);
@@ -389,6 +389,7 @@ int mali_module_init(void)
 
 	err = platform_driver_register(&mali_platform_driver);
 
+	MALI_DEBUG_PRINT(4, ("mali_module_init() registering driver returned (%d)\n", err));
 	if (0 != err) {
 		MALI_DEBUG_PRINT(2, ("mali_module_init() Failed to register driver (%d)\n", err));
 #ifdef MALI_FAKE_PLATFORM_DEVICE
