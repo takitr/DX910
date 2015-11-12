@@ -157,12 +157,18 @@ ccflags-$(CONFIG_MALI400_DEBUG) += -DDEBUG
 ccflags-y += -I$(src) -I$(src)/include -I$(src)/common -I$(src)/linux -I$(src)/platform
 
 # Platform integration
-ccflags-y += -I$(src)/platform/$(MALI_PLATFORM)
+ifneq ($(MALI_PLATFORM),)
+	ccflags-y += -I$(src)/platform/$(MALI_PLATFORM)
+endif
 
 ## Platform specific integration
 ifeq ($(MALI_PLATFORM),odroid)
 	ccflags-y += -Iarch/arm/plat-samsung/include/
 	ccflags-y += -Iarch/arm/mach-exynos/
+	ccflags-y += -DHARDKERNEL_MALI_TWEAKS
+endif
+
+ifeq ($(MALI_PLATFORM),pegasus-m400)
 	ccflags-y += -DHARDKERNEL_MALI_TWEAKS
 endif
 

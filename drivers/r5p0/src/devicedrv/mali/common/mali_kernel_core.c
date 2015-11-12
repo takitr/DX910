@@ -901,6 +901,7 @@ void mali_terminate_subsystems(void)
 #if defined(HARDKERNEL_MALI_TWEAKS)
 	mali_platform_deinit();
 #endif
+
 	mali_utilization_term();
 	mali_control_timer_term();
 

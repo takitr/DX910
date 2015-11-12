@@ -99,9 +99,6 @@ const char *mali_pm_group_stats_to_string(void);
 
 _mali_osk_errcode_t mali_pm_initialize(void)
 {
-	_mali_osk_errcode_t err;
-	struct mali_pmu_core *pmu;
-
 #if defined(HARDKERNEL_MALI_TWEAKS)
 #ifdef CONFIG_PM
 	pm_runtime_set_autosuspend_delay(&(mali_platform_device->dev), 1000);
@@ -109,6 +106,9 @@ _mali_osk_errcode_t mali_pm_initialize(void)
 	pm_runtime_enable(&(mali_platform_device->dev));
 #endif
 #endif
+
+	_mali_osk_errcode_t err;
+	struct mali_pmu_core *pmu;
 
 	pm_lock_state = _mali_osk_spinlock_irq_init(_MALI_OSK_LOCKFLAG_ORDERED,
 			_MALI_OSK_LOCK_ORDER_PM_STATE);

@@ -24,6 +24,9 @@
 #include <linux/miscdevice.h>
 #include <linux/bug.h>
 #include <linux/of.h>
+#if defined(HARDKERNEL_MALI_TWEAKS)
+#include "mali_platform.h"
+#endif
 
 #include <linux/mali/mali_utgard.h>
 #include "mali_kernel_common.h"

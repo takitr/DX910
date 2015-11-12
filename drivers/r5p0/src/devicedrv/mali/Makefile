@@ -9,13 +9,13 @@
 #
 
 USE_UMPV2=0
-USING_PROFILING ?= 0
+USING_PROFILING ?= 1
 USING_INTERNAL_PROFILING ?= 0
 USING_DVFS ?= 0
 MALI_HEATMAPS_ENABLED ?= 0
 MALI_DMA_BUF_MAP_ON_ATTACH ?= 1
 MALI_PMU_PARALLEL_POWER_UP ?= 0
-USING_DT ?= 0
+USING_DT ?= 1
 
 # The Makefile sets up "arch" based on the CONFIG, creates the version info
 # string and the __malidrv_build_info.c file, and then call the Linux build
@@ -104,9 +104,7 @@ export CONFIG_MALI400=m
 #export CONFIG_MALI450=y
 
 export EXTRA_DEFINES += -DCONFIG_MALI400=1
-#ifneq ($(CONFIG_MALI450),y)
 #export EXTRA_DEFINES += -DCONFIG_MALI450=1
-#endif
 
 ifneq ($(MALI_PLATFORM),)
 ifneq ($(MALI_PLATFORM),odroid)
