@@ -22,3 +22,15 @@ x11/xf86-video-mali-0.0.1/libtool
 x11/xf86-video-mali-0.0.1/src/.deps/
 x11/xf86-video-mali-0.0.1/src/Makefile
 x11/xf86-video-mali-0.0.1/src/Makefile.in
+
+# kernel drivers
+
+*.ko
+*.ko.cmd
+*.mod.o
+*.mod.c
+*.o
+*.o.cmd
+Module.symvers
+modules.order
+.tmp_versions
