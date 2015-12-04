@@ -1,15 +1,16 @@
 #!/bin/sh
-
-NAME=mali
-PACKAGE_NAME=$NAME-dkms
-
 set -e
 
-VERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | cut -d"-" -f1`
+DRIVER_NAME=mali
+DRIVER_REVISION=r5p0
+DRIVER_PLATFORM=exynos
+PACKAGE_NAME=$DRIVER_NAME-$DRIVER_REVISION-platform-$DRIVER_PLATFORM-dkms
+PACKAGE_VERSION=`dpkg-query -W -f='${Version}' $PACKAGE_NAME | awk -F "-" '{print $1}' | cut -d\: -f2`
+
 case "$1" in
     remove|upgrade|deconfigure)
-      if [  "`dkms status -m $NAME`" ]; then
-        dkms remove -m $NAME -v $VERSION --all
+      if [  "`dkms status -m $DRIVER_NAME`" ]; then
+        dkms remove -m $DRIVER_NAME -v $PACKAGE_VERSION --all
       fi
     ;;
 esac
