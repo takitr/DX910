@@ -1,0 +1,10 @@
+/ ** Common device entry for exynos4 platform
+  *
+  * Extracted from TIZEN's git repository:
+https://review.tizen.org/git/?p=platform/kernel/linux-3.10.git;a=blob;f=arch/arm/boot/dts/exynos4412-odroid-common.dtsi;h=b42cdce62943164951df4089f535db6f59028745;hb=550f7df28065566357105c4a6f5b0c4932b0c2fa#l490
+  * / 
+
+	gpu@13000000 {
+					status = "okay";
+					vdd_g3d-supply = <&buck4_reg>;
+	};

@@ -1,0 +1,4 @@
+	gpu@13000000 {
+	              status = "okay";
+	              vdd_g3d-supply = <&vg3d_breg>;
+	};
