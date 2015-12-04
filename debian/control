@@ -7,14 +7,66 @@ Build-Depends: debhelper (>= 9),
  libx11-6, libdrm2, libxfixes3, libxext6
 Standards-Version: 3.8.1
 
-Package: mali-dkms
+Package: libmali-hardkernel-odroid-u3-r5p0
+Architecture: armhf
+Provides: libmali-hardkernel-odroid-u3
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Recommends:
+ xserver-xorg,
+ mali-r5p0-platform-exynos-dkms
+Description: ARM mali xserver driver.
+
+Package: libmali-hardkernel-odroid-u3-r4p0
+Architecture: armhf
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Recommends:
+ xserver-xorg
+Description: ARM mali xserver driver.
+
+Package: mali-r5p2-source
 Architecture: all
 Depends: ${misc:Depends},
  dkms, make,
  libdrm-dev, linux-libc-dev
 Recommends:
  linux-headers-generic
-Description: ARM Mali driver in DKMS format.
+Description: ARM Mali r5p2 sources.
+
+Package: mali-r5p0-source
+Architecture: all
+Depends: ${misc:Depends},
+ dkms, make,
+ libdrm-dev, linux-libc-dev
+Recommends:
+ linux-headers-generic
+Description: ARM Mali r5p0 sources.
+
+Package: mali-r5p0-platform-exynos-dkms
+Architecture: all
+Provides:
+ mali-dkms
+Depends: ${misc:Depends},
+ mali-r5p0-source,
+ dkms, make,
+ libdrm-dev, linux-libc-dev
+Recommends:
+ linux-headers-generic
+Conflicts:
+ mali-dkms
+Description: ARM Mali driver for exynos platform in DKMS format.
+
+Package: mali-r4p0-source
+Architecture: all
+Depends: ${misc:Depends},
+ dkms, make,
+ libdrm-dev, linux-libc-dev
+Recommends:
+ linux-headers-generic
+Description: ARM Mali r4p0 sources.
 
 #Package: mali-drm-dkms
 #Architecture: all
@@ -36,13 +88,4 @@ Description: ARM Mali driver in DKMS format.
 # dkms, make,
 # libdrm-dev, linux-libc-dev
 #Description: ARM UMPLOCK driver in DKMS format.
-
-Package: libmali-hardkernel-odroid-u3-r5p0
-Architecture: armhf
-Depends:
- ${shlibs:Depends},
- ${misc:Depends}
-Recommends:
- xserver-xorg
-Description: ARM mali xserver driver.
 

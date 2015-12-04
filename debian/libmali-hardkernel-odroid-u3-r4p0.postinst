@@ -9,7 +9,7 @@ case "$1" in
   configure)
   # Use alternatives to make it easier to switch between Mali, MESA and other 3rd party modules
   update-alternatives --force \
-    --install /etc/ld.so.conf.d/${DEB_HOST_MULTIARCH}_EGL.conf ${DEB_HOST_MULTIARCH}_egl_conf /usr/lib/${DEB_HOST_MULTIARCH}/mali-egl-hardkernel-odroid-u3/ld.so.conf 800 \
+    --install /etc/ld.so.conf.d/arm-linux-gnueabihf_EGL.conf arm-linux-gnueabihf_egl_conf /usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3/ld.so.conf 800 \
 
   # ldconfig needs to be run immediately as we're changing /etc/ld.so.conf.d/ with
   # alternatives.

@@ -1,0 +1,12 @@
+# libMali
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libEGL.so
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libEGL.so.1
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libEGL.so.1.4
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv1_CM.so
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv1_CM.so.1
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv1_CM.so.1.1
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv2.so
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv2.so.1
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv2.so.1.1
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv2.so.2
+/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libMali.so	/usr/lib/arm-linux-gnueabihf/mali-egl-hardkernel-odroid-u3-r4p0/libGLESv2.so.2.0.0
